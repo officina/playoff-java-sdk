@@ -52,7 +52,7 @@ Android >= 2.3
 ## Install
 if you are using gradle then
 ```java
-compile "com.github.officina:playoff-java-sdk:0.4.3"
+compile "com.github.officina:playoff-java-sdk:1.0.0"
 ```
 or if you prefer to use maven
 ```xml
@@ -134,7 +134,7 @@ String token = Playoff.createJWT("your client_id", "your client_secret",
     3600; // 1 hour expiry Time
 );
 ```
-This is used to create jwt token which can be created when your user is authenticated. This token can then be sent to the frontend and or stored in your session. With this token the user can directly send requests to the Playlyfe API as the player.
+This is used to create jwt token which can be created when your user is authenticated. This token can then be sent to the frontend and or stored in your session. With this token the user can directly send requests to the Playoff API as the player.
 
 # Client Scopes
 ![Client](https://dev.playoff.cc/images/assets/client-scopes.png)

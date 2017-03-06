@@ -48,6 +48,7 @@ uploadArchives {
       repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
         authentication(userName: 'playlyfe', password: 'playlyfe@playlyfe')
       }
+
       pom.version = '1.0.0'
       pom.groupId = 'cc.playoff'
       pom.artifactId = 'playoff-java-sdk'
