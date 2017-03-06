@@ -1,0 +1,85 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: 'maven'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'com.squareup.okhttp:okhttp:2.4.0'
+  compile 'com.google.code.gson:gson:2.3'
+  compile 'com.auth0:java-jwt:2.0.1'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task fatJar(type: Jar) {
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+artifacts {
+  archives jar, javadocJar, sourcesJar
+}
+
+
+
+allprojects { ext."signing.keyId" = 'BBA60104' }
+allprojects { ext."signing.secretKeyRingFile" = '/Users/riccardogazzea/.gnupg/secring.gpg' }
+allprojects { ext."signing.password" = 'tester' }
+
+
+mavenPomDir = "build/libs"
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: 'playlyfe', password: 'playlyfe@playlyfe')
+      }
+      pom.version = '1.0.0'
+      pom.groupId = 'cc.playoff'
+      pom.artifactId = 'playoff-java-sdk'
+      pom.project {
+        name 'PlayOff Java and Android SDK'
+        description 'This is the official OAuth 2.0 Java and Android client SDK for the PlayOff API. It supports the client_credentials and authorization code OAuth 2.0 flows.'
+        url 'https://github.com/officina/playoff-java-sdk'
+        inceptionYear '2014'
+
+        scm {
+          url 'https://github.com/officina/playoff-java-sdk'
+          connection 'scm:git@github.com:officina/playoff-java-sdk.git'
+          developerConnection 'scm:git@github.com:officina/playoff-java-sdk.git'
+        }
+        licenses {
+          license {
+              name 'The MIT License (MIT)'
+              url 'https://github.com/officina/playoff-java-sdk/blob/master/LICENSE.md'
+              distribution 'repo'
+
+          }
+        }
+
+        developers {
+          developer {
+              id 'playoff'
+              name 'Team Officina'
+              email 'support@playoff.cc'
+          }
+        }
+      }
+
+    }
+  }
+}
