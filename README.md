@@ -1,6 +1,6 @@
 ![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/pl-java-sdk.png "Playoff Java SDK")
 
-Playoff Java and Android SDK [![Maven](http://img.shields.io/maven-central/v/com.playlyfe/playlyfe-java-sdk.svg)](http://search.maven.org/#artifactdetails|com.playlyfe|playlyfe-java-sdk|0.2.0|jar)
+Playoff Java and Android SDK [![](https://jitpack.io/v/officina/playoff-java-sdk.svg)](https://jitpack.io/#officina/playoff-java-sdk)
 =================
 
 This is the official OAuth 2.0 Java and Android client SDK for the Playoff API. It has support for both synchronous and asynchronous calls.
