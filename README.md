@@ -1,4 +1,4 @@
-![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/playofflogo.svg "Playoff Java SDK")
+![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/playofflogo.png "Playoff Java SDK")
 
 Playoff Java and Android SDK [![](https://jitpack.io/v/officina/playoff-java-sdk.svg)](https://jitpack.io/#officina/playoff-java-sdk)
 =================
