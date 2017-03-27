@@ -1,4 +1,4 @@
-![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/playofflogo.png "Playoff Java SDK")
+![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/playofflogo@1x.png "Playoff Java SDK")
 
 Playoff Java and Android SDK [![](https://jitpack.io/v/officina/playoff-java-sdk.svg)](https://jitpack.io/#officina/playoff-java-sdk)
 =================
@@ -50,11 +50,22 @@ or
 Android >= 2.3
 
 ## Install
-if you are using gradle then
+if you are using gradle add the JitPack repository
+```java
+url "https://jitpack.io"
+```
+and then
 ```java
 compile "com.github.officina:playoff-java-sdk:1.0.0"
 ```
-or if you prefer to use maven
+or if you prefer to use maven, add the JitPack maven repository to the list of repositories:
+```xml
+<repository>
+	<id>jitpack.io</id>
+	<url>https://jitpack.io</url>
+</repository>
+```
+and then add maven dependency
 ```xml
 <dependency>
 	<groupId>com.github.officina</groupId>
@@ -62,14 +73,8 @@ or if you prefer to use maven
     <version>1.0.0</version>
 </dependency>
 ```
-or if you just want the jar then copy `playoff-java-sdk-all.jar` to your libs folder. It contains the sdk with all dependencies baked in it.
-```yaml
--build
-  - libs
-    - playoff-java-sdk-all.jar # use this
-```
 
-## Using
+## Usage
 ### Create a client
   If you haven't created a client for your game yet just head over to [Playoff](http://playoff.cc) and login into your account, and go to the game settings and click on client.
 
@@ -468,38 +473,6 @@ You need to have these tools,
 To install all dependencies run `gradle build`
 
 If you are using eclipse then run this gradle task `gradle eclipse`
-
-## GraphQL SDK
-
-**For api v3**
-```java
-import Playoff.PlayoffException;
-import PlayoffGraphQL;
-
-PlayoffGraphQL po = new PlayoffGraphQL(
-	"your user secret", // the secret used to encrypt the token with
-	"http://localhost:3212/graphql" // the graphql api endpoint
-);
-String token = po.createJWT("your user_id", 3600);
-String query =  "query K {"
- 		+ " root {"
- 		+ "    games { "
- 		+ "      edges { "
- 		+ "        node {"
- 		+ "          id"
- 		+ "          name"
- 		+ "        }"
- 		+ "      }"
- 		+ "    }"
- 		+ " }}";
-try {
-	Map<String, Object> games = (Map<String, Object>) po.graphql(token, query, null);
-	System.out.println(games);
-} catch(PlayoffException e) {
-	System.out.println(e);
-}
-```
-
 
 License
 =======
