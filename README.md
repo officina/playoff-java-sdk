@@ -56,7 +56,7 @@ url "https://jitpack.io"
 ```
 and then
 ```java
-compile "com.github.officina:playoff-java-sdk:1.0.0"
+compile "com.github.officina:playoff-java-sdk:1.0.1"
 ```
 or if you prefer to use maven, add the JitPack maven repository to the list of repositories:
 ```xml
@@ -70,7 +70,7 @@ and then add maven dependency
 <dependency>
 	<groupId>com.github.officina</groupId>
 	<artifactId>playoff-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
