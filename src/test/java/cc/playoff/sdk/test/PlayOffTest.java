@@ -138,7 +138,8 @@ public class PlayOffTest {
 	            	  return access_token;
 	              }
 	          }
-	        }
+	        },
+	        "playoffgenerali.it"
       );
       HashMap<String, String> player_id = new HashMap<String, String>();
   	  player_id.put("player_id", "student1");

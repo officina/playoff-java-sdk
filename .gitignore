@@ -1,3 +1,12 @@
 .idea/*
 .idea/libraries
 
+/build/
+*.class
+/bin/
+.gradle/*
+build/*
+.settings
+.classpath
+.project
+/.gradle/
