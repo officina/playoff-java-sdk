@@ -1,18 +1,18 @@
-![Playloff Java and Android SDK](https://dev.playoff.cc/images/assets/playofflogo@1x.png "Playoff Java SDK")
+![Playloff Java and Android SDK](https://dev.playoffgamification.io/images/assets/playofflogo@1x.png "Playoff Java SDK")
 
 Playoff Java and Android SDK [![](https://jitpack.io/v/officina/playoff-java-sdk.svg)](https://jitpack.io/#officina/playoff-java-sdk)
 =================
 
 This is the official OAuth 2.0 Java and Android client SDK for the Playoff API. It has support for both synchronous and asynchronous calls.
 It supports the `client_credentials` and `authorization code` OAuth 2.0 flows.
-For a complete API Reference checkout [Playoff Developers](https://dev.playoff.cc/docs/api.html) for more information.
+For a complete API Reference checkout [Playoff Developers](https://dev.playoffgamification.io/docs/api.html) for more information.
 
 # Examples
 The Playoff class allows you to make rest api calls like GET, POST, .. etc.
 To get started create a new playoff object using client credentials flow and then start making requests
 **For api v2**
 ```java
-Playoff playoff = new Playoff("Your client id", "Your client secret", null, "v2");
+Playoff playoff = new Playoff("Your client id", "Your client secret", null, "v2","playoffgamification.io");
 HashMap<String, String> player_id = new HashMap<String, String>();
 player_id.put("player_id", "student1");
 // To get infomation of a  player
@@ -76,23 +76,23 @@ and then add maven dependency
 
 ## Usage
 ### Create a client
-  If you haven't created a client for your game yet just head over to [Playoff](http://playoff.cc) and login into your account, and go to the game settings and click on client.
+  If you haven't created a client for your game yet just head over to [Playoff](http://playoffgamification.io) and login into your account, and go to the game settings and click on client.
 
 ###1. Client Credentials Flow
 In the client page select Yes for both the first and second questions
-![client](https://dev.playoff.cc/images/assets/client.png)
+![client](https://dev.playoffgamification.io/images/assets/client.png)
 ```java
 import Playoff;
 
-Playoff playoff = new Playoff("Your client id", "Your client secret", null)
+Playoff playoff = new Playoff("Your client id", "Your client secret", null, "Your domain")
 ```
 ###2. Authorization Code Flow
 In the client page select yes for the first question and no for the second
-![auth](https://dev.playoff.cc/images/assets/auth.png)
+![auth](https://dev.playoffgamification.io/images/assets/auth.png)
 ```java
 import Playoff;
 
-Playoff playoff = new Playoff("Your client id", "Your client secret", "Your redirect URI", null)
+Playoff playoff = new Playoff("Your client id", "Your client secret", "Your redirect URI", null, "Your domain")
 ```
 In development the sdk caches the access token in memory so you don"t need to  the persist access token object. But in production it is highly recommended to persist the token to a database. It is very simple and easy to do it with redis. You can see the test cases for more examples.
 You need to return a HashMap<String, Object> which has the keys access_token and expires_at.
@@ -128,7 +128,7 @@ Playoff po = new Playoff("Your client id", "Your client secret", new PersistAcce
 ```
 ## 3. Custom Login Flow using JWT(JSON Web Token)
 In the client page select no for the first question and yes for the second
-![jwt](https://dev.playoff.cc/images/assets/jwt.png)
+![jwt](https://dev.playoffgamification.io/images/assets/jwt.png)
 ```java
 import Playoff;
 
@@ -142,7 +142,7 @@ String token = Playoff.createJWT("your client_id", "your client_secret",
 This is used to create jwt token which can be created when your user is authenticated. This token can then be sent to the frontend and or stored in your session. With this token the user can directly send requests to the Playoff API as the player.
 
 # Client Scopes
-![Client](https://dev.playoff.cc/images/assets/client-scopes.png)
+![Client](https://dev.playoffgamification.io/images/assets/client-scopes.png)
 
 Your client has certain access control restrictions. There are 3 kind of resources in the Playoff REST API they are,
 
@@ -244,7 +244,7 @@ For the async methods you first need to pass a callback inteface to the all the 
 import Playoff;
 import Playoff.Callback;
 
-Playoff playoff = new Playoff("Your client id", "Your client secret", "Your redirect URI", null)
+Playoff playoff = new Playoff("Your client id", "Your client secret", "Your redirect URI", "Your domain")
 playoff.getAsync("/runtime/player", player_id, new Callback(){
     @Override
     void onSuccess(Object data) {
@@ -298,7 +298,8 @@ class PlayerProfile extends AsyncTask<String, Void, Object> {
             "Zjc0MWU0N2MtODkzNS00ZWNmLWEwNmYtY2M1MGMxNGQ1YmQ4",
             "YzllYTE5NDQtNDMwMC00YTdkLWFiM2MtNTg0Y2ZkOThjYTZkMGIyNWVlNDAtNGJiMC0xMWU0LWI2NGEtYjlmMmFkYTdjOTI3",
             null,
-            "v2"
+            "v2",
+            "playoffgamification.io"
         );
         HashMap<String, String> player_id = new HashMap<String, String>();
         player_id.put("player_id", "student1");
@@ -344,7 +345,8 @@ protected void onCreate(Bundle savedInstanceState) {
         "Zjc0MWU0N2MtODkzNS00ZWNmLWEwNmYtY2M1MGMxNGQ1YmQ4",
         "YzllYTE5NDQtNDMwMC00YTdkLWFiM2MtNTg0Y2ZkOThjYTZkMGIyNWVlNDAtNGJiMC0xMWU0LWI2NGEtYjlmMmFkYTdjOTI3",
         null,
-        "v2"
+        "v2",
+        "playoffgamification.io"
     );
     HashMap<String, String> player_id = new HashMap<String, String>();
     player_id.put("player_id", "student1");
@@ -477,8 +479,8 @@ If you are using eclipse then run this gradle task `gradle eclipse`
 License
 =======
 Playoff Java SDK
-http://dev.playoff.cc/
-Copyright(c) 2016-2017, Officina S.r.l, support@playoff.cc
+http://dev.playoffgamification.io/
+Copyright(c) 2016-2017, Officina S.r.l, support@playoffgamification.io
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

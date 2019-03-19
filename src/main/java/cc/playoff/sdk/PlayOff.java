@@ -49,7 +49,7 @@ public class PlayOff {
 	 * @param client_secret: your client secret
 	 * @param pac: Your implementation to store and load the access token from a database
 	 * @param version: api version
-	 * @param domain: your domain in short version (i.e. "playoff.cc")
+	 * @param domain: your domain in short version (i.e. "playoffgamification.io")
 	 */
 	public PlayOff(String client_id, String client_secret, PersistAccessToken pac, String version, String domain) {
 		this.client_id = client_id;
@@ -71,7 +71,7 @@ public class PlayOff {
 	 * @param client_id: your client id
 	 * @param client_secret: your client secret
 	 * @param redirect_uri The redirect_uri
-	 * @param domain: your domain in short version (i.e. "playoff.cc")
+	 * @param domain: your domain in short version (i.e. "playoffgamification.io")
 	 */
 	public PlayOff(String client_id, String client_secret, String redirect_uri, PersistAccessToken pac, String domain) {
 		this(client_id, client_secret, redirect_uri, pac, "v2",domain);
