@@ -1,4 +1,4 @@
-![Playloff Java and Android SDK](https://dev.playoffgamification.io/images/assets/playofflogo@1x.png "Playoff Java SDK")
+![Playloff Java and Android SDK](https://dev.playoffgamification.io/images/assets/pl-java-sdk.png "Playoff Java SDK")
 
 Playoff Java and Android SDK [![](https://jitpack.io/v/officina/playoff-java-sdk.svg)](https://jitpack.io/#officina/playoff-java-sdk)
 =================
@@ -480,7 +480,7 @@ License
 =======
 Playoff Java SDK
 http://dev.playoffgamification.io/
-Copyright(c) 2016-2017, Officina S.r.l, support@playoffgamification.io
+Copyright(c) 2019, Officina S.r.l, support@playoffgamification.io
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

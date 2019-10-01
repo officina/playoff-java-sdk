@@ -1,7 +1,7 @@
 
 The MIT License (MIT)  
-http://dev.playoff.cc/  
-Copyright(c) 2016-2017, Officina S.r.l., support@playoff.cc
+http://dev.playoffgamification.io/  
+Copyright(c) 2019, Officina S.r.l., support@playoffgamification.io
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
