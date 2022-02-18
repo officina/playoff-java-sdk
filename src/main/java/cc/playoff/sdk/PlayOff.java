@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import com.google.gson.JsonSyntaxException;
 import com.squareup.okhttp.HttpUrl.Builder;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -304,7 +306,7 @@ public class PlayOff {
 		client.newCall(request).enqueue(new com.squareup.okhttp.Callback() {
 			@Override
 			public void onResponse(Response response) throws IOException {
-				if (raw == true) {
+				if (raw) {
 					cb.onSuccess((byte[]) response.body().bytes());
 				} else {
 					try {
@@ -312,6 +314,8 @@ public class PlayOff {
 						cb.onSuccess(data);
 					} catch (PlayOffException e) {
 						cb.onPlayOffError(e);
+					} catch (Exception unexpected) {
+						cb.onPlayOffError(new PlayOffException("generic_error", unexpected.getMessage()));
 					}
 				}
 			}
@@ -376,7 +380,11 @@ public class PlayOff {
 			Map<String, String> errors = (Map<String, String>) gson.fromJson(content, Object.class);
 			throw new PlayOffException(errors.get("error"), errors.get("error_description"));
 		} else {
-			return gson.fromJson(content, Object.class);
+			try {
+				return gson.fromJson(content, Object.class);
+			} catch (JsonSyntaxException exception) {
+				throw new PlayOffException("invalid_json_syntax", "Received an invalid body: " + content);
+			}
 		}
 	}
 
